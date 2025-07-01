@@ -1,0 +1,53 @@
+import React, { useState, useEffect } from 'react';
+import './GalleryPage.css';
+
+import img1 from './images/Church.png';
+import img2 from './images/Church2.jpg';
+import img3 from './images/Church3.jpg';
+import img4 from './images/Church4.jpg';
+import img5 from './images/Church5.jpg';
+import img6 from './images/Church6.jpg';
+import img7 from './images/Church7.jpg';
+import img8 from './images/Church7.jpg';
+import img9 from './images/Church9.jpg';
+import img10 from './images/Church10.jpg';
+import img11 from './images/Church11.jpg';
+import img12 from './images/Church12.jpg';
+import img13 from './images/Church13.jpg';
+import img14 from './images/Church14.jpg';
+
+function GalleryPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const images = [img1,img7,img8,img2,img9,img10,img11,img12,img5,img13,img14,img3, img4,img6];
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  return (
+    <div className="gallery-page">
+      <h2>Church Images</h2>
+      <div className="gallery-grid">
+        {images.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`Church ${index + 1}`}
+            onClick={() => setSelectedImage(src)}
+          />
+        ))}
+      </div>
+
+      {selectedImage && (
+        <div className="modal-overlay" onClick={() => setSelectedImage(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <img src={selectedImage} alt="Full view" />
+            <span className="modal-close" onClick={() => setSelectedImage(null)}>&times;</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default GalleryPage;

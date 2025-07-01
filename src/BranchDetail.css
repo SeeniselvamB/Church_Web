@@ -1,0 +1,35 @@
+.branch-detail {
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+.branch-detail-container {
+  max-width: 800px;
+  margin: auto;
+  background-color: #f0f0f0;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.branch-detail-container img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.branch-detail-container h2 {
+  color: #003366;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.branch-detail-container p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  text-align: justify;
+}

@@ -1,0 +1,59 @@
+.history-section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+.history-container {
+  max-width: 1000px;
+  margin: auto;
+  background-color: #f0f0f0;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.history-container h2 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 30px;
+}
+
+.father-history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.father-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  text-align: center;
+}
+
+.father-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.father-card h3 {
+  color: #003366;
+  margin: 10px 0 5px;
+}
+
+.father-card p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .father-card {
+    width: 100%;
+  }
+}

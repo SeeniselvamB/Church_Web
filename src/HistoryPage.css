@@ -1,0 +1,39 @@
+.history-page {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.history-page h2 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.history-page p {
+  white-space: pre-line; /* Keeps line breaks if you copy/paste multiline text */
+  text-align: justify;
+}
+
+.read-more-link {
+  display: inline-block;
+  margin-top: 30px;
+  color: #003366;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #003366;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.read-more-link:hover {
+  background-color: #003366;
+  color: #fff;
+}
