@@ -1,0 +1,97 @@
+  /* .home-section {
+  height: 60vh;
+  background-image: url('./church1.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.home-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-title {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2rem;
+    padding: 0 10px;
+  }
+} 
+ */
+.home-section {
+  height: 90vh;
+  /* background-image: url('./church1.png'); */
+  background-image: url('./Church12.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Verse banner above the image */
+.verse-banner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  /* background-color: #003366; */
+  color: #ffffff;
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.home-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-title {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin: 0;
+}
+
+.home-subtitle {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2rem;
+    padding: 0 10px;
+  }
+
+  .home-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .verse-banner {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
