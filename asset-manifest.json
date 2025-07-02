@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.70473563.css",
-    "main.js": "./static/js/main.44934aaa.js",
+    "main.css": "./static/css/main.ad518a43.css",
+    "main.js": "./static/js/main.b4b1186b.js",
     "static/js/453.392f635e.chunk.js": "./static/js/453.392f635e.chunk.js",
     "static/media/Church10.jpg": "./static/media/Church10.31a89bc1e5e6b82a5d3d.jpg",
     "static/media/Church11.jpg": "./static/media/Church11.01f20f2781e1cc20e96c.jpg",
@@ -9,6 +9,8 @@
     "static/media/Church12.jpg": "./static/media/Church12.f7525cb22e07513fec28.jpg",
     "static/media/Church9.jpg": "./static/media/Church9.5196cb8c80484eb66d5a.jpg",
     "static/media/Church.png": "./static/media/Church.9c95c194827a150eab8b.png",
+    "static/media/Kalkurichi.png": "./static/media/Kalkurichi.048bdc2ca77f557605e9.png",
+    "static/media/Pudupatti.png": "./static/media/Pudupatti.bf8de0757f2597e64c1a.png",
     "static/media/Church13.jpg": "./static/media/Church13.9c000696657981b4711f.jpg",
     "static/media/Church14.jpg": "./static/media/Church14.c077369f20c5cfbf8c06.jpg",
     "static/media/img1.jpg": "./static/media/img1.8d27f8fac1c31951acd6.jpg",
@@ -19,12 +21,12 @@
     "static/media/Church2.jpg": "./static/media/Church2.7aced466da06795ebff1.jpg",
     "static/media/youtube.png": "./static/media/youtube.5accd050b16f68b4f2f2.png",
     "index.html": "./index.html",
-    "main.70473563.css.map": "./static/css/main.70473563.css.map",
-    "main.44934aaa.js.map": "./static/js/main.44934aaa.js.map",
+    "main.ad518a43.css.map": "./static/css/main.ad518a43.css.map",
+    "main.b4b1186b.js.map": "./static/js/main.b4b1186b.js.map",
     "453.392f635e.chunk.js.map": "./static/js/453.392f635e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.70473563.css",
-    "static/js/main.44934aaa.js"
+    "static/css/main.ad518a43.css",
+    "static/js/main.b4b1186b.js"
   ]
 }
