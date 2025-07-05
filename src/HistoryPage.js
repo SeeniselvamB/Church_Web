@@ -88,7 +88,7 @@ function HistoryPage() {
       { name: 'Rev. G. Sam Chellappa', years: '2007' },
       { name: 'Rev. D. Anburaj', years: '2008' },
       { name: 'Rev. S. Jothinayagam', years: '2009–2019' },
-      { name: 'Rev. R. Kalidhasan Peter', years: '2019–Present' }
+      { name: 'Rev. R. Kalidashan Peter', years: '2019–Present' }
     ].map((pastor, index) => (
       <tr key={index}>
         <td>{pastor.name}</td>
