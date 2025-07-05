@@ -26,6 +26,74 @@ function TamilHistory() {
 
 
       </p>
+      <h3 className="table-title">அமெரிக்கன் மிஷனரிகள்</h3>
+<table className="pastor-table">
+  <thead>
+    <tr>
+      <th>Pastor Name</th>
+      <th>Years of Service</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      { name: 'Rev. ஜேம்ஸ் ஹேரிக்', years: '1849–1883' },
+      { name: 'Rev. J.E. திரேசி', years: '1884–1888' },
+      { name: 'Rev. J.C. பெர்கின்ஸ்', years: '1889–1903' },
+      { name: 'Rev. H.C. ஹாசன்', years: '1904–1909' },
+      { name: 'Rev. J.E. ஜெப்ரி', years: '1910–1920' },
+      { name: 'Rev. E.E. ஒயிட்', years: '1921–1940' }
+    ].map((pastor, index) => (
+      <tr key={index}>
+        <td>{pastor.name}</td>
+        <td>{pastor.years}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<h3 className="table-title">இந்திய குருமார்கள்</h3>
+<table className="pastor-table">
+  <thead>
+    <tr>
+      <th>Pastor Name</th>
+      <th>Years of Service</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      { name: 'Rev. R.G. டட்லி', years: '1941–1943' },
+      { name: 'Rev. P.K. எட்வர்ட்', years: '1944–1946' },
+      { name: 'Rev. G.P. ஜேம்ஸ்', years: '1947' },
+      { name: 'Rev. G. துரைராஜ்', years: '1948' },
+      { name: 'Rev. டேவிட் ஜான்', years: '1949–1952' },
+      { name: 'Rev. E.J. எட்வின் செல்வராஜ்', years: '1953–1956' },
+      { name: 'Rev. D. காலின்ஸ்', years: '1957–1961' },
+      { name: 'Rev. K. ராபர்ட் முத்தையா', years: '1962–1963' },
+      { name: 'Rev. S. பாக்கியநாதன்', years: '1964–1966' },
+      { name: 'Rev. M.R. எபிநேசர்', years: '1967–1972' },
+      { name: 'Rev. K. ராபர்ட் முத்தையா', years: '1973–1980' },
+      { name: 'Rev. W. பால்ராஜ் சுவாமிதாஸ்', years: '1981–1988' },
+      { name: 'Rev. R. அதிசயம்', years: '1989' },
+      { name: 'Rev. J. தங்கையா', years: '1990–1991' },
+      { name: 'Rev. T. ராயப்பா', years: '1992' },
+      { name: 'Rev. P. ஜெயச்சந்திரன்', years: '1993–1996' },
+      { name: 'Rev. A. கிறிஸ்டோபர் ஆசீர்', years: '1997–1998' },
+      { name: 'Rev. S. ஜான்ராஷ் கமலம்', years: '1999–2003' },
+      { name: 'Rev. G.K. செல்லப்பா', years: '2004–2005' },
+      { name: 'Rev. K. ஏசுதாஸ்', years: '2006' },
+      { name: 'Rev. G. சாம் செல்லப்பா', years: '2007' },
+      { name: 'Rev. D. அன்புராஜ்', years: '2008' },
+      { name: 'Rev. S. ஜோதிநாயகம்', years: '2009–2019' },
+      { name: 'Rev. R. காளிதாசன் பீட்டர்', years: '2019–Present' }
+    ].map((pastor, index) => (
+      <tr key={index}>
+        <td>{pastor.name}</td>
+        <td>{pastor.years}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
     </div>
   );
 }

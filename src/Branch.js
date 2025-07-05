@@ -4,7 +4,7 @@ import './Branch.css';
 import { Link } from 'react-router-dom';
 import img1 from './images/Kalkurichi.png';
 import img2 from './images/Church2.jpg';
-import img3 from './images/Pudupatti.png';
+import img3 from './images/Pudhupatti.jpg';
 import img4 from './images/Church2.jpg';
 import img5 from './images/Church2.jpg';
 import img6 from './images/Church2.jpg';

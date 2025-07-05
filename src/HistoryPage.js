@@ -7,14 +7,6 @@ function HistoryPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const pastors = [
-    { name: 'Rev.R.Kalidhasan Peter', years: 'Current Paster' },
-    { name: 'Rev.Jothinayagam', years: '2011 - 2020' },
-    { name: 'Rev. Samuel D.', years: '1866 - 1878' },
-    { name: 'Rev. Arulraj', years: '1879 - 1890' },
-    { name: 'Rev. Daniel Raj', years: '1891 - 1905' },
-    // ➕ Add more entries as needed
-  ];
   return (
     <div className="history-page">
       <h2>History of the Church</h2>
@@ -38,23 +30,73 @@ function HistoryPage() {
         The social status of women was very backward. The married women showed great interest in hearing the gospel.
         They were engaged in farming and business. In 1859, a new church was started in Chithumoondradaippu by the missionary Rev. James Herrick.
       </p>
-      <h3 className="table-title">List of Pastors</h3>
-      <table className="pastor-table">
-        <thead>
-          <tr>
-            <th>Pastor Name</th>
-            <th>Years of Service</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pastors.map((pastor, index) => (
-            <tr key={index}>
-              <td>{pastor.name}</td>
-              <td>{pastor.years}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h3 className="table-title">American Missionaries</h3>
+<table className="pastor-table">
+  <thead>
+    <tr>
+      <th>Pastor Name</th>
+      <th>Years of Service</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      { name: 'Rev. James Herrick', years: '1849–1883' },
+      { name: 'Rev. J.E. Tracey', years: '1884–1888' },
+      { name: 'Rev. J.C. Perkins', years: '1889–1903' },
+      { name: 'Rev. H.C. Hassan', years: '1904–1909' },
+      { name: 'Rev. J.E. Jeffry', years: '1910–1920' },
+      { name: 'Rev. E.E. White', years: '1921–1940' }
+    ].map((pastor, index) => (
+      <tr key={index}>
+        <td>{pastor.name}</td>
+        <td>{pastor.years}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<h3 className="table-title">Indian Pastors</h3>
+<table className="pastor-table">
+  <thead>
+    <tr>
+      <th>Pastor Name</th>
+      <th>Years of Service</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      { name: 'Rev. R.G. Dudley', years: '1941–1943' },
+      { name: 'Rev. P.K. Edward', years: '1944–1946' },
+      { name: 'Rev. G.P. James', years: '1947' },
+      { name: 'Rev. G. Durairaj', years: '1948' },
+      { name: 'Rev. David John', years: '1949–1952' },
+      { name: 'Rev. E.J. Edwin Selvaraj', years: '1953–1956' },
+      { name: 'Rev. D. Collins', years: '1957–1961' },
+      { name: 'Rev. K. Robert Muthiah', years: '1962–1963' },
+      { name: 'Rev. S. Bhakiyanathan', years: '1964–1966' },
+      { name: 'Rev. M.R. Ebenezer', years: '1967–1972' },
+      { name: 'Rev. K. Robert Muthiah', years: '1973–1980' },
+      { name: 'Rev. W. Paulraj Swamidass', years: '1981–1988' },
+      { name: 'Rev. R. Adhisayam', years: '1989' },
+      { name: 'Rev. J. Thangaiya', years: '1990–1991' },
+      { name: 'Rev. T. Rayappa', years: '1992' },
+      { name: 'Rev. P. Jeyachandran', years: '1993–1996' },
+      { name: 'Rev. A. Christopher Aseer', years: '1997–1998' },
+      { name: 'Rev. S. Johnrash Kamalam', years: '1999–2003' },
+      { name: 'Rev. G.K. Chellappa', years: '2004–2005' },
+      { name: 'Rev. K. Yesudhas', years: '2006' },
+      { name: 'Rev. G. Sam Chellappa', years: '2007' },
+      { name: 'Rev. D. Anburaj', years: '2008' },
+      { name: 'Rev. S. Jothinayagam', years: '2009–2019' },
+      { name: 'Rev. R. Kalidhasan Peter', years: '2019–Present' }
+    ].map((pastor, index) => (
+      <tr key={index}>
+        <td>{pastor.name}</td>
+        <td>{pastor.years}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
 
 
       <Link to="/history/tamil" className="read-more-link">Translate to Tamil</Link>

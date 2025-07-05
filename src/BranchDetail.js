@@ -14,9 +14,9 @@ const branchData = {
     about: 'This is the description for Branch Church 2.',
   },
   3: {
-    image: '/Pudupatti.png',
+    image: '/Pudhupatti.jpg',
     title: 'PUDHUPATTI CHURCH',
-    about: 'P. PuthuppattiIn 2003, while visiting the P. Puthuppatti church for the Christmas service, it was observed that the CSI church there had deteriorated significantly to the point where worship could not be conducted. Rev. G.K. Sellappa announced that it needed to be renovated. The church members, the management committee, and the youth of the Emmanuel church collectively contributed cement, sand, paint, and money to renovate the Puthuppatti church in 2005, allowing services and activities to continue, thanks to the grace of God. A family repaired the interrupted electrical connections. The work done by Brother Anbalagan, who led the maintenance efforts of the P. Puthuppatti church, was commendable.',
+    about: 'In 2003, while visiting the P. Puthuppatti church for the Christmas service, it was observed that the CSI church there had deteriorated significantly to the point where worship could not be conducted. Rev. G.K. Sellappa announced that it needed to be renovated. The church members, the management committee, and the youth of the Emmanuel church collectively contributed cement, sand, paint, and money to renovate the Puthuppatti church in 2005, allowing services and activities to continue, thanks to the grace of God. A family repaired the interrupted electrical connections. The work done by Brother Anbalagan, who led the maintenance efforts of the P. Puthuppatti church, was commendable.',
   },
   4: {
     image: '/images/Church2.jpg',
