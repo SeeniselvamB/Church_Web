@@ -11,7 +11,7 @@ const branchData = {
   2: {
     image: '/images/Church2.jpg',
     title: 'THOPPUR CHURCH',
-    about: 'This is the description for Branch Church 2.',
+    about: 'There was a temple in the village of Thoppur, 1/2 km from Chithumoondradaippu, 40 years ago. The Lord gave us the grace to start a ministry there.Here too, prayer meetings, home visits, Sabbath services, and vacation Bible school programs are being held continuously through young brothers and sisters. There was a temple before the time of the elders. The Lord gave grace to start the ministry there..',
   },
   3: {
     image: '/Pudhupatti.jpg',
@@ -21,17 +21,17 @@ const branchData = {
   4: {
     image: '/images/Church2.jpg',
     title: 'THONUGAL CHURCH',
-    about: 'This is the description for Branch Church 4.',
+    about: 'Church will be conducted on every months fourth sunday.',
   },
   5: {
     image: '/images/Church2.jpg',
     title: 'PAMPATTI CHURCH',
-    about: 'This is the description for Branch Church 5.',
+    about: 'Church will be conducted on every months second sunday.',
   },
   6: {
     image: '/images/Church2.jpg',
     title: 'KARISALKULAM CHURCH',
-    about: 'This is the description for Branch Church 6.',
+    about: 'Church will be conducted on every months second sunday.',
   },
 };
 

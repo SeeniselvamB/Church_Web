@@ -29,7 +29,6 @@ function App() {
               <>
                 <section id="home"><Home /></section>
                 <section id="about"><About /></section>
-                {/* <section id="father"><Father /></section> */}
                 <section id="timing"><Timing /></section>
                 <section id="gallery"><Images /></section>
                 {/* <section id="events"><Events /></section> */}
