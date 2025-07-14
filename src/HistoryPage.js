@@ -1,16 +1,19 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './HistoryPage.css';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function HistoryPage() {
   useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <div className="history-page">
-      <h2>History of the Church</h2>
-      <p>
+      <h2 data-aos="fade-up">History of the Church</h2>
+      <p data-aos="fade-up" data-aos-delay="100">
         Since 1816, they had been evangelizing in the Jaffna area under the "American Ceylon Mission", an organization affiliated with the American Mission.
         In those days, many American mission meetings expressed their desire to evangelize in Tamil Nadu, where the Tamil population was large,
         and especially in the Madurai region. However, that wish began to come true 18 years later.
@@ -30,8 +33,8 @@ function HistoryPage() {
         The social status of women was very backward. The married women showed great interest in hearing the gospel.
         They were engaged in farming and business. In 1859, a new church was started in Chithumoondradaippu by the missionary Rev. James Herrick.
       </p>
-      <h3 className="table-title">American Missionaries</h3>
-<table className="pastor-table">
+      <h3 className="table-title" data-aos="fade-right">American Missionaries</h3>
+      <table className="pastor-table" data-aos="zoom-in-up">
   <thead>
     <tr>
       <th>Pastor Name</th>
@@ -55,8 +58,8 @@ function HistoryPage() {
   </tbody>
 </table>
 
-<h3 className="table-title">Indian Pastors</h3>
-<table className="pastor-table">
+<h3 className="table-title" data-aos="fade-right" data-aos-delay="100">Indian Pastors</h3>
+<table className="pastor-table" data-aos="zoom-in-up" data-aos-delay="100">
   <thead>
     <tr>
       <th>Pastor Name</th>
@@ -99,7 +102,7 @@ function HistoryPage() {
 </table>
 
 
-      <Link to="/history/tamil" className="read-more-link">Translate to Tamil</Link>
+      <Link to="/history/tamil" className="read-more-link" data-aos="fade-up" data-aos-delay="200">Translate to Tamil</Link>
     </div>
   );
 }

@@ -1,15 +1,18 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './HistoryPage.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function TamilHistory() {
   useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+    AOS.init({ duration: 1000, once: true });
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="history-page">
-      <h2>வரலாற்றுச் சூழ்நிலை</h2>
-      <p>
+      <h2 data-aos="fade-up">வரலாற்றுச் சூழ்நிலை</h2>
+      <p data-aos="fade-up" data-aos-delay="100">
         1816ஆம் ஆண்டு முதல் அமெரிக்கன் மிஷனைச் சேர்ந்த "அமெரிக்கன் சிலோன் மிஷன்" என்ற அமைப்பின் கீழ் யாழ்ப்பாணம் பகுதியில் நற்செய்திப் பணியாற்றி வந்தார்கள்.
         அந்த நாட்களில், தமிழர்கள் அதிகமாக வாழும் தமிழ்நாட்டில், மிக குறிப்பாக மதுரைப் பகுதியில் நற்செய்திப்பணி செய்ய வேண்டும் என்ற தங்கள் 
         விருப்பத்தை பல அமெரிக்கன் மிஷன் கூட்ட நடவடிக்கைகளில் தெரிவித்து வந்தார்கள். இருப்பினும், அந்த விருப்பம் 18 ஆண்டுகள் கழித்து நிறைவேற ஆரம்பமானது.
@@ -26,8 +29,8 @@ function TamilHistory() {
 
 
       </p>
-      <h3 className="table-title">அமெரிக்கன் மிஷனரிகள்</h3>
-<table className="pastor-table">
+      <h3 className="table-title" data-aos="fade-right">அமெரிக்கன் மிஷனரிகள்</h3>
+      <table className="pastor-table" data-aos="zoom-in-up">
   <thead>
     <tr>
       <th>Pastor Name</th>
@@ -51,8 +54,8 @@ function TamilHistory() {
   </tbody>
 </table>
 
-<h3 className="table-title">இந்திய குருமார்கள்</h3>
-<table className="pastor-table">
+<h3 className="table-title" data-aos="fade-right" data-aos-delay="100">இந்திய குருமார்கள்</h3>
+      <table className="pastor-table" data-aos="zoom-in-up" data-aos-delay="100">
   <thead>
     <tr>
       <th>Pastor Name</th>
