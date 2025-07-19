@@ -41,7 +41,9 @@ html {
     color: white;
   }
 
-  .home-section,
+  .home-section{
+    height: 90vh;
+  }
   .about-section,
   .gallery-section,
   .fathers-section,
