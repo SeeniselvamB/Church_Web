@@ -29,3 +29,32 @@ html {
     overflow-x: hidden;
   }
 }
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #003366;
+    backdrop-filter: blur(6px);
+    color: white;
+  }
+
+  .home-section,
+  .about-section,
+  .gallery-section,
+  .fathers-section,
+  .events-section {
+    padding-top: 80px;
+  }
+
+  .verse-banner {
+    top: 70px;
+    z-index: 999;
+  }
+
+  body, html {
+    overflow-x: hidden;
+  }
+}
