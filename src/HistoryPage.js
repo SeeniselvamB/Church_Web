@@ -102,7 +102,7 @@ function HistoryPage() {
 </table>
 
 
-      <Link to="/history/tamil" className="read-more-link" data-aos="fade-up" data-aos-delay="200">Translate to Tamil</Link>
+      <Link to="/history/tamil" className="read-more-link" data-aos-delay="200">Translate to Tamil</Link>
     </div>
   );
 }
