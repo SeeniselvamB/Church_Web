@@ -1,0 +1,149 @@
+/* Background setup */
+.history-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  color: #222;
+  line-height: 1.8;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+/* Glass background effect */
+.history-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #eceff1, #dbe7ff, #eef5ff);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+  z-index: -2;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Card container for text */
+.history-page h2 {
+  font-size: 2.2rem;
+  color: #003366;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.history-page p {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  white-space: pre-line;
+  text-align: justify;
+  margin-bottom: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Glass table container */
+.pastor-table {
+  width: 100%;
+  max-width: 850px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Table styles */
+.pastor-table th,
+.pastor-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: left;
+  color: #222;
+}
+
+.pastor-table th {
+  background: rgba(0, 51, 102, 0.85);
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.pastor-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Section titles */
+.table-title {
+  margin-top: 50px;
+  font-size: 1.7rem;
+  color: #003366;
+  text-align: center;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button - translate link */
+.read-more-link {
+  display: inline-block;
+  margin: 40px auto 0;
+  color: #fff;
+  background: linear-gradient(135deg, #003366, #0059b3);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 51, 102, 0.3);
+}
+
+.read-more-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 51, 102, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .history-page {
+    padding: 40px 15px;
+  }
+
+  .history-page p {
+    padding: 18px;
+    font-size: 0.95rem;
+  }
+
+  .pastor-table th,
+  .pastor-table td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .history-page h2 {
+    font-size: 1.8rem;
+  }
+
+  .table-title {
+    font-size: 1.3rem;
+  }
+}

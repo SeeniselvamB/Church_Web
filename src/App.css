@@ -64,3 +64,12 @@ html {
 
 
 
+section {
+  margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin-bottom: 40px;
+  }
+}

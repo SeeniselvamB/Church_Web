@@ -1,22 +1,25 @@
 import React, { useEffect } from 'react';
-import './About.css';
+import '../styles/About.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 
 function About() {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1200, once: true });
   }, []);
 
   return (
     <section className="about-section" id="about">
-      <div className="about-container" data-aos="fade-up">
+      <div className="background-blur"></div>
+
+      <div className="about-container glass-card" data-aos="fade-up">
         <h2 data-aos="fade-down" data-aos-delay="100">About the Church</h2>
         <p data-aos="fade-up" data-aos-delay="300">
-          Church history is not just a collection of events that have taken place in the past. 
-          The early Christian believers who played roles in those past events are the Christian commitment, 
-          accomplishments, and sacrifices they made for the expansion of the kingdom of Jesus Christ.
+          Our church stands as a beacon of faith and love, guided by the teachings of Jesus Christ. 
+          Rooted in a history of devotion and service, we honor the commitment and sacrifices made by early believers 
+          who spread the light of Christianity to the world. 
+          Together, we continue their mission — growing in faith, compassion, and unity.
         </p>
         <Link
           to="/history"
@@ -32,3 +35,4 @@ function About() {
 }
 
 export default About;
+

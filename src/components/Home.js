@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import './Home.css';
+import '../styles/Home.css';
 
 function Home() {
   useEffect(() => {
