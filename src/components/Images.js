@@ -50,7 +50,7 @@ function Images() {
           />
         </div>
 
-        <div className="more-link" data-aos="fade-up" data-aos-delay="400">
+        <div className="more-link" data-aos="fade-left" data-aos-delay="400">
           <Link to="/gallery">More Images...</Link>
         </div>
       </div>

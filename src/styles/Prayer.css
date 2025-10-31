@@ -1,0 +1,339 @@
+/* Floating Button */
+.prayer-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #b39ddb;
+    color: #2c003e;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(100, 100, 255, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.prayer-btn:hover {
+    background-color: #c7b6ec;
+    transform: scale(1.05);
+}
+
+/* Overlay Background */
+.prayer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* full viewport */
+    background: rgba(240, 240, 255, 0.9);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    animation: fadeIn 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* Form Container */
+.prayer-form {
+    background: #ffffff;
+    width: 90%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Light Theme */
+.light-theme {
+    background-color: #faf8ff;
+    border: 1px solid #e0dff5;
+}
+
+/* Title */
+.prayer-form h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    color: #5a189a;
+    font-weight: 600;
+}
+
+/* Inputs */
+.prayer-form input,
+.prayer-form textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cbbcf6;
+    background-color: #f7f5ff;
+    font-size: 15px;
+    color: #333;
+}
+
+.prayer-form input:focus,
+.prayer-form textarea:focus {
+    outline: none;
+    border-color: #9d4edd;
+    background-color: #fff;
+}
+
+/* Submit Button */
+.send-btn {
+    width: 100%;
+    background-color: #9d4edd;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.send-btn:hover {
+    background-color: #b185ff;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    color: #5a189a;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: #d62828;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 480px) {
+    .prayer-btn {
+        bottom: 15px;
+        right: 15px;
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .prayer-form {
+        width: 90%;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .prayer-form h2 {
+        font-size: 18px;
+    }
+}
+
+/* === Square Floating Prayer Icon === */
+.prayer-btn-square {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    border-radius: 14px;
+    /* slight rounded edges */
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(13, 71, 161, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.prayer-btn-square:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(13, 71, 161, 0.5);
+    background: linear-gradient(135deg, #1976d2, #0d47a1);
+}
+
+/* Icon inside the button */
+.prayer-icon {
+    font-size: 28px;
+}
+
+/* Responsive Button */
+@media (max-width: 480px) {
+    .prayer-btn-square {
+        width: 55px;
+        height: 55px;
+        border-radius: 12px;
+        bottom: 18px;
+        right: 18px;
+    }
+
+    .prayer-icon {
+        font-size: 24px;
+    }
+}
+
+/* Floating Square Prayer Button */
+.prayer-btn-square {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 6px 15px rgba(13, 71, 161, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.prayer-btn-square:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #1976d2, #0d47a1);
+}
+
+/* Overlay */
+.prayer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(240, 240, 255, 0.95);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+}
+
+/* Form */
+.prayer-form {
+    background: #fff;
+    width: 90%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.light-theme {
+    background-color: #faf8ff;
+    border: 1px solid #e0dff5;
+}
+
+.prayer-form h2 {
+    color: #5a189a;
+    margin-bottom: 15px;
+}
+
+.prayer-form input,
+.prayer-form textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cbbcf6;
+    background-color: #f7f5ff;
+    font-size: 15px;
+    color: #333;
+}
+
+.prayer-form input:focus,
+.prayer-form textarea:focus {
+    outline: none;
+    border-color: #9d4edd;
+    background-color: #fff;
+}
+
+.send-btn {
+    width: 100%;
+    background-color: #9d4edd;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.send-btn:hover {
+    background-color: #b185ff;
+}
+
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    color: #5a189a;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: #d62828;
+}
+
+@media (max-width: 480px) {
+    .prayer-btn-square {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+}
+
+/* === Button Scroll Animation === */
+.prayer-btn-square {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.prayer-btn-square.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}

@@ -10,6 +10,7 @@ import GalleryPage from './components/GalleryPage';
 import HistoryPage from './components/HistoryPage';
 import TamilHistory from './components/TamilHistory';
 import Media from './components/Media';
+import Prayer from './components/Prayer';
 
 
 import './App.css';
@@ -20,6 +21,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        <Prayer />
         <Routes>
           <Route
             path="/"
@@ -45,4 +47,5 @@ function App() {
 }
 
 export default App;
+
 
