@@ -26,7 +26,7 @@
   to { transform: translateY(-30px); }
 }
 
-/* === GLASSMORPHIC CARD === */
+/* === GLASS CARD DEFAULT (FOR DESKTOP + DESKTOP SITE ON MOBILE) === */
 .glass-card {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(18px) saturate(160%);
@@ -72,7 +72,7 @@
   box-shadow: inset 0 0 10px rgba(255,255,255,0.15);
 }
 
-/* === BUTTON (ALWAYS WHITE TEXT) === */
+/* === BUTTON === */
 .read-more-link {
   display: inline-block;
   background: linear-gradient(135deg, #0d47a1, #1976d2);
@@ -88,7 +88,6 @@
   z-index: 1;
 }
 
-/* === GLOW EFFECT ON BUTTON === */
 .read-more-link:hover {
   transform: scale(1.08);
   border-color: #ffffff;
@@ -96,7 +95,6 @@
   color: #ffffff !important;
 }
 
-/* === GLOW ANIMATION AROUND BUTTON === */
 .read-more-link::before {
   content: "";
   position: absolute;
@@ -115,7 +113,7 @@
   100% { transform: scale(0.8); opacity: 0.5; }
 }
 
-/* === RESPONSIVE DESIGN === */
+/* === RESPONSIVE TEXT === */
 @media (max-width: 1024px) {
   .about-container h2 {
     font-size: 2.2rem;
@@ -125,32 +123,28 @@
   }
 }
 
-@media (max-width: 768px) {
+/* === TRUE MOBILE VIEW (NORMAL PHONE MODE ONLY) === */
+@media screen and (max-width: 768px) and (orientation: portrait) {
   .glass-card {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
     padding: 35px 25px;
   }
 
-  .about-container h2 {
-    font-size: 1.9rem;
-  }
-
   .about-container p {
-    font-size: 1rem;
-  }
-
-  .read-more-link {
-    padding: 10px 22px;
+    background: none;
+    box-shadow: none;
+    padding: 0;
   }
 }
 
+/* === SMALLER MOBILE TEXT === */
 @media (max-width: 480px) {
   .about-section {
     padding: 60px 10px;
-  }
-
-  .glass-card {
-    border-radius: 15px;
-    padding: 25px 15px;
   }
 
   .about-container h2 {
@@ -159,5 +153,64 @@
 
   .about-container p {
     font-size: 0.95rem;
+  }
+}
+@media (max-width: 768px) {
+  .glass-card {
+    background: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .about-section {
+    background: linear-gradient(135deg, #b3e5fc, #e1f5fe, #bbdefb) !important;
+    padding: 0px 0px; /* Reduced top padding slightly for better fit */
+    
+    
+  }
+
+  .about-container {
+    margin: 0 auto; /* Centers the content */
+    padding: 0 10px; /* Adds spacing from left/right edges */
+  }
+
+  .about-container h2 {
+    margin-bottom: 20px; /* Adjust title spacing */
+    font-size: 1.8rem;
+  }
+
+  .about-container p {
+    margin-bottom: 25px;
+    font-size: 1rem;
+    line-height: 1.7;
+    padding: 10px 1px;
+  }
+
+  .read-more-link {
+    padding: 10px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    background: linear-gradient(135deg, #b3e5fc, #e1f5fe, #bbdefb) !important;
+    padding: 0 !important; /* 🔹 Removes all outer padding */
+  }
+
+  .glass-card {
+    padding: 10px 5px !important; /* 🔹 Reduce inside spacing */
+    margin: 0 !important; /* 🔹 Remove extra space around card */
+  }
+
+  .about-container p {
+    padding: 5px 1px !important; /* 🔹 Tiny side space */
+    margin: 5px 0 !important; /* 🔹 Tight vertical gap */
+  }
+
+  .about-container h2 {
+    margin: 5px 0 10px 0 !important; /* 🔹 Compact heading */
   }
 }

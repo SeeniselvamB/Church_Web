@@ -1,5 +1,5 @@
 .home-section {
-  height: 90vh;
+  height: 98vh;
   background-image: url('../Church12.jpg');
   background-size: cover;
   background-position: center;
@@ -45,6 +45,7 @@
   .verse-banner {
     font-size: 0.9rem;
     padding: 6px 12px;
+    
   }
 }
 
@@ -67,6 +68,7 @@
   text-overflow: ellipsis;       
   font-size: 1.2rem;              
   transition: font-size 0.2s ease;
+  margin-top:100px;
 }
 
 
@@ -86,5 +88,6 @@
   .verse-banner {
     top:20px;
     padding: 0.8cm 12px;
+    margin-top: 8px;
   }
 } 

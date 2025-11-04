@@ -12,13 +12,10 @@
   z-index: 0;
 }
 
-/* === FLOATING LIGHT EFFECT === */
+/* Floating glow overlay */
 .location-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: radial-gradient(circle at 25% 35%, rgba(255,255,255,0.4), transparent 70%),
               radial-gradient(circle at 80% 70%, rgba(255,255,255,0.3), transparent 70%);
   animation: floatLight 8s ease-in-out infinite alternate;
@@ -30,7 +27,7 @@
   to { transform: translateY(-35px); }
 }
 
-/* === GLASS CARD === */
+/* === MAIN CARD === */
 .location-container {
   position: relative;
   background: rgba(255, 255, 255, 0.28);
@@ -51,58 +48,316 @@
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
 }
 
-/* === TITLE === */
+/* === TEXTS === */
 .location-title {
   font-size: 2.3rem;
   color: #004080;
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   letter-spacing: 1px;
 }
 
-/* === ADDRESS TEXT === */
-.location-address {
-  color: #002a5c;
+.location-subtext {
+  color: #003355;
   font-size: 1.1rem;
   margin-bottom: 25px;
   font-weight: 500;
 }
 
-/* === MAP CONTAINER === */
-.map-wrapper {
+/* === ADDRESS CARD === */
+.address-card {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.address-card h3 {
+  color: #004080;
+  margin-bottom: 10px;
+}
+
+.copy-btn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.copy-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #003e80);
+  transform: scale(1.05);
+}
+
+/* === INFO CARDS === */
+.info-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.info-card {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* === DIRECTIONS BUTTON === */
+.directions-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #00aaff, #0077cc);
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.directions-btn:hover {
+  background: linear-gradient(135deg, #0077cc, #005fa3);
+  transform: scale(1.05);
+}
+
+/* === MAP === */
+.map-container {
+  position: relative;
+  margin-top: 30px;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 64, 128, 0.25);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 64, 128, 0.25);
 }
 
-.map-wrapper:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 64, 128, 0.35);
+.map-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 3;
 }
 
-/* === RESPONSIVE DESIGN === */
+.spinner {
+  width: 45px;
+  height: 45px;
+  border: 4px solid rgba(0, 64, 128, 0.2);
+  border-top: 4px solid #004080;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* === FEATURE GRID === */
+.feature-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 15px 20px;
+  width: 200px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .location-container {
-    padding: 30px 20px;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 30px 10px !important;
   }
 
   .location-title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 
-  .location-address {
+  .location-subtext {
     font-size: 1rem;
+  }
+
+  .info-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-grid {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
   .location-section {
+    padding: 40px 5px !important;
+  }
+
+  .location-title {
+    font-size: 1.5rem;
+  }
+
+  .location-subtext {
+    font-size: 0.95rem;
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .location-section {
     padding: 60px 10px;
+  }
+
+  .location-container {
+    padding: 25px 10px;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .location-title {
+    font-size: 2rem;
+  }
+
+  .location-subtext {
+    font-size: 1rem;
+  }
+
+  .address-block {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .location-section {
+    padding: 40px 8px;
+  }
+
+  .location-title {
+    font-size: 1.7rem;
+  }
+
+  .location-subtext {
+    font-size: 0.95rem;
+  }
+
+  .copy-btn, .directions-btn {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+}
+/* === MOBILE OPTIMIZED VIEW === */
+@media (max-width: 480px) {
+  /* Compact padding */
+  .location-section {
+    padding: 40px 10px !important;
   }
 
   .location-title {
     font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .location-subtext {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  /* Make buttons full width */
+  .copy-btn,
+  .directions-btn {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  /* === INFO CARDS (Service Times & Get in Touch) === */
+  .info-grid {
+    display: flex;
+    flex-direction: row;       /* ✅ stay in one row */
+    justify-content: space-between; /* ✅ even space between */
+    align-items: stretch;
+    gap: 10px;
+    flex-wrap: nowrap;         /* ✅ no wrap */
+    width: 100%;
+  }
+
+  .info-card {
+    flex: 1 1 50%;
+    width: 50%;
+    min-width: 0;              /* ✅ prevent overflow */
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+
+  /* === FEATURE CARDS (Accessible, Parking, Welcoming) === */
+  .feature-grid {
+    display: flex;
+    flex-direction: row;        /* ✅ single row */
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: 25px;
+    width: 100%;
+  }
+
+  .feature-card {
+    flex: 1 1 33.3%;
+    width: 33.3%;
+    padding: 10px 6px;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+  }
+
+  /* Reduce padding in the address section */
+  .address-card {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  /* Compact map */
+  .map-container {
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+
+  iframe.map-frame {
+    height: 300px;
   }
 }

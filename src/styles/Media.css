@@ -303,3 +303,40 @@ body.modal-open {
     max-height: 55vh;
   }
 }
+
+/* === PHONE VIEW: TWO BRANCHES PER ROW + TWO SOCIAL LINKS PER ROW === */
+@media (max-width: 480px) {
+  /* === Branch Grid: 2 per row === */
+  .branch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ✅ Two per row */
+    gap: 15px;
+    justify-items: center;
+  }
+
+  .branch-card.simple-view {
+    width: 100%;
+    padding: 20px 15px;
+  }
+
+  /* ✅ Center last card if odd number */
+  .branch-card.simple-view:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 80%;
+  }
+
+  /* === Social Links: 2 per line === */
+  .follow-box .social-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ✅ Two per line */
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .social-link {
+    justify-content: center;
+    font-size: 0.95rem;
+    padding: 10px 15px;
+  }
+}
