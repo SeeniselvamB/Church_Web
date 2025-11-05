@@ -268,3 +268,21 @@
     margin-top: 25px;
   }
 }
+
+
+/* === FIX: Prevent internal scroll in phone view === */
+@media (max-width: 768px) {
+  .timing-section {
+    overflow: visible !important; /* allow normal page scroll */
+  }
+
+  .timing-container {
+    position: static !important; /* remove any fixed/scroll lock behavior */
+    overflow: visible !important; /* prevent internal scrolling */
+    max-height: none !important;
+  }
+
+  .timing-group {
+    overflow: visible !important;
+  }
+}

@@ -50,10 +50,29 @@ function Media() {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  // Disable page scroll when modal open
   useEffect(() => {
-    document.body.style.overflow = selectedBranch ? 'hidden' : 'auto';
+    let scrollY = 0;
+
+    if (selectedBranch) {
+      // Save the current scroll position
+      scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.overflowY = 'hidden';
+    } else {
+      // Restore scroll position
+      const y = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflowY = '';
+      window.scrollTo(0, parseInt(y || '0') * -1);
+    }
   }, [selectedBranch]);
+
 
   return (
     <section className="media-section">

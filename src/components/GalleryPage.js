@@ -33,9 +33,39 @@ function GalleryPage() {
 
   const [selectedImage, setSelectedImage] = useState(null);
 
+  // 🔒 Scroll lock for all devices (desktop + phone)
+  useEffect(() => {
+    if (selectedImage) {
+      // Store current scroll position
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.overflow = 'hidden';
+      document.body.style.width = '100%';
+    } else {
+      // Restore scroll
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflow = '';
+      document.body.style.width = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+
+    return () => {
+      document.body.style.position = '';
+      document.body.style.overflow = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
+  }, [selectedImage]);
+
   return (
     <section className="gallery-page" id="gallery">
-      {/* Background light effect */}
       <div className="gallery-overlay"></div>
 
       <div className="glass-card" data-aos="fade-up">
@@ -55,7 +85,6 @@ function GalleryPage() {
         </div>
       </div>
 
-      {/* Modal Image View */}
       {selectedImage && (
         <div className="modal-overlay" onClick={() => setSelectedImage(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -74,4 +103,3 @@ function GalleryPage() {
 }
 
 export default GalleryPage;
-

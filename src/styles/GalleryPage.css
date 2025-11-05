@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  overflow: hidden;
+  overflow-x: hidden;
   z-index: 0;
 }
 
@@ -100,6 +100,7 @@
   align-items: center;
   z-index: 999;
   animation: fadeIn 0.4s ease forwards;
+  overflow-y: auto; /* ensure scrolling works on phone if image too tall */
 }
 
 .modal-content {
@@ -187,7 +188,13 @@
     font-size: 1.6rem;
   }
 
+  /* ✅ Force two images per row on phone view */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
   .gallery-grid img {
-    height: 160px;
+    height: 150px;
   }
 }
