@@ -50,14 +50,25 @@
 
 /* === TEXTS === */
 .location-title {
-  font-size: 2.3rem;
-  color: #004080;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
   font-weight: 700;
+  color: var(--navy-deep, #0d1b2a);
   text-transform: uppercase;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+  letter-spacing: 0.10em;
+  margin: 0 0 10px;
 }
 
+
+.location-title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a84c, #e8c97a);
+  margin: 12px auto 44px;
+  border-radius: 2px;
+}
 .location-subtext {
   color: #003355;
   font-size: 1.1rem;
@@ -361,5 +372,44 @@
 
   iframe.map-frame {
     height: 300px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  /* Remove glass card completely */
+  .location-container {
+    background: none !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px !important;
+  }
+
+  /* ❌ REMOVE GRID STRUCTURE */
+  .info-grid,
+  .feature-grid {
+    display: none !important;   /* ✅ hides grid completely */
+  }
+
+  /* ❌ REMOVE EXTRA CARDS */
+  
+  .feature-card {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  /* Optional: center text cleanly */
+  .location-subtext {
+    text-align: center;
+  }
+
+  /* Full width buttons */
+  .copy-btn,
+  .directions-btn {
+    width: 100%;
   }
 }

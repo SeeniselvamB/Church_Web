@@ -1,55 +1,92 @@
+
+
+
+/* ============================================================
+   HOME SECTION — Full-bleed hero with elegant overlay
+   ============================================================ */
+
 .home-section {
-  height: 98vh;
+  height: 100vh;
+  min-height: 600px;
   background-image: url('../Church12.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   position: relative;
+  overflow: hidden;
+  background-position: center;
 }
+
+/* Gradient overlay: dark navy bottom fade for drama */
 .home-overlay {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(13, 27, 42, 0.30) 0%,
+      rgba(13, 27, 42, 0.50) 50%,
+      rgba(13, 27, 42, 0.80) 100%
+    );
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.home-title {
-  color: #ffffff;
-  font-size: 3.5rem;
-  font-weight: 600;
+/* === HERO TEXT BLOCK === */
+.home-text {
   text-align: center;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Thin gold rule above title */
+.home-text::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  margin-bottom: 6px;
+}
+
+/* Thin gold rule below subtitle */
+.home-text::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  margin-top: 6px;
+}
+
+.home-title {
+  font-family: 'Cinzel', serif;
+  color: #f0e8d0;
+  font-size: clamp(2.0rem, 5vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.55);
   margin: 0;
+  line-height: 1.15;
 }
 
 .home-subtitle {
-  color: #ffffff;
-  font-size: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  color: #e8c97a;
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
   font-weight: 400;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
-  margin-top: 10px;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.50);
+  margin: 0;
 }
 
-@media (max-width: 768px) {
-  .home-title {
-    font-size: 2rem;
-    padding: 0 10px;
-  }
-
-  .home-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .verse-banner {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-    
-  }
-}
-
-
+/* === VERSE BANNER — floats near top === */
 .verse-banner {
   position: absolute;
   top: 50px;
@@ -63,31 +100,46 @@
   border-radius: 12px;
   animation: fadeInVerse 1s ease;
   z-index: 10;
-  white-space: nowrap;           
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;       
-  font-size: 1.2rem;              
+  text-overflow: ellipsis;
+  font-size: 1.2rem;
   transition: font-size 0.2s ease;
   margin-top:100px;
-}
 
+}
 
 @keyframes fadeInVerse {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -10px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
 }
 
+
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .home-section {
+    background-attachment: scroll; /* fix iOS parallax */
+    height: 100svh;
+  }
+
+  .home-title { font-size: clamp(1.6rem, 7vw, 2.6rem); }
+  .home-subtitle { font-size: clamp(0.95rem, 4vw, 1.4rem); }
+
+  .verse-banner {
+    font-size: 0.88rem;
+    top: 76px;
+    padding: 8px 20px;
+    max-width: 92%;
+    border-radius: 30px;
+  }
+}
 
 @media (max-width: 480px) {
   .verse-banner {
-    top:20px;
-    padding: 0.8cm 12px;
+    top: 20px;
+    padding: 0.8px 12px;
+    font-size: 0.82rem;
     margin-top: 8px;
   }
-} 
+}

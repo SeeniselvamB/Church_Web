@@ -7,17 +7,13 @@ import img1 from '../images/Church.png';
 import img2 from '../images/Church2.jpg';
 import img5 from '../images/Church5.jpg';
 import img6 from '../images/Church6.jpg';
-import img7 from '../images/Church7.jpg';
-import img8 from '../images/Church7.jpg';
 import img9 from '../images/Church9.jpg';
-import img10 from '../images/Church10.jpg';
 import img11 from '../images/Church11.jpg';
 import img12 from '../images/Church12.jpg';
 import img13 from '../images/Church13.jpg';
 import img14 from '../images/Church14.jpg';
 import img15 from '../images/Church15.jpg';
 import img16 from '../images/Church16.jpg';
-import img17 from '../images/Church17.jpg';
 import img18 from '../images/Church18.jpg';
 
 function GalleryPage() {
@@ -27,8 +23,8 @@ function GalleryPage() {
   }, []);
 
   const images = [
-    img1, img7, img8, img17, img2, img9, img10, img11,
-    img12, img5, img13, img14, img15, img16, img18, img6,
+    img1, img12, img11, img9,
+    img2, img5, img13, img14, img15, img16, img18, img6,
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);

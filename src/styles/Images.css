@@ -52,12 +52,23 @@
 
 /* === TITLE === */
 .gallery-title {
-  font-size: 2.3rem;
-  margin-bottom: 40px;
-  color: #004080;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
   font-weight: 700;
+  color: var(--navy-deep, #0d1b2a);
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  margin: 0 0 10px;
+}
+
+.gallery-title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a84c, #e8c97a);
+  margin: 12px auto 44px;
+  border-radius: 2px;
 }
 
 /* === IMAGE GRID === */
@@ -180,7 +191,9 @@
   }
 
   .gallery-title {
+    margin-top: 20px;
     font-size: 1.5rem;
+    margin-bottom: 0px;
   }
 
   .image-grid {
@@ -191,5 +204,16 @@
   .image-item img {
     height: 180px;
     border-radius: 12px;
+  }
+}
+
+
+.image-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 480px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr); /* better UX */
   }
 }

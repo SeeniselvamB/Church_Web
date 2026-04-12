@@ -134,12 +134,12 @@ function Navbar() {
         <div className="navbar-container">
           {/* === LOGO === */}
           <div className="navbar-logo" onClick={(e) => handleNavClick("home", e)}>
-            <div className="logo-icon">⛪</div>
+            {/* <div className="logo-icon">⛪</div> */}
             <div>
-              <h1 className="logo-title">CSI Immanuel Church</h1>
-              <p className={`logo-subtitle ${scrolled ? "hidden" : ""}`}>
+              <h1 className="logo-title">CSI Immanuel Church CMU</h1>
+              {/* <p className={`logo-subtitle ${scrolled ? "hidden" : ""}`}>
                 Faith • Hope • Love
-              </p>
+              </p> */}
             </div>
           </div>
 

@@ -51,14 +51,24 @@
 
 
 .timing-container h2 {
-  font-size: 2.6rem;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
   font-weight: 700;
-  margin-bottom: 40px;
-  color: #004d66;
+  color: #f0e8d0;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.12em;
+  margin: 0 0 10px;
 }
 
+.timing-container h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a84c, #e8c97a);
+  margin: 12px auto 44px;
+  border-radius: 2px;
+}
 
 .timing-group {
   margin-bottom: 35px;

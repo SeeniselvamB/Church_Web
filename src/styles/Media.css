@@ -48,20 +48,31 @@
   transition: all 0.4s ease;
 }
 
+
 .glass-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
 }
 
 .glass-card h2 {
-  font-size: 2.4rem;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
   font-weight: 700;
-  margin-bottom: 40px;
-  color: #004d66;
+  color: var(--navy-deep, #0d1b2a);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.10em;
+  margin: 0 0 10px;
 }
 
+.glass-card h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a84c, #e8c97a);
+  margin: 12px auto 44px;
+  border-radius: 2px;
+}
 /* === BRANCH GRID === */
 .branch-grid {
   display: grid;
@@ -338,5 +349,14 @@ body.modal-open {
     justify-content: center;
     font-size: 0.95rem;
     padding: 10px 15px;
+  }
+}
+.branch-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 480px) {
+  .branch-grid {
+    grid-template-columns: repeat(2, 1fr); /* better UX */
   }
 }
