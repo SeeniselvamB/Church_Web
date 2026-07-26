@@ -21,8 +21,6 @@ function About() {
         <Link
           to="/history"
           className="read-more-link"
-          data-aos="fade-left"
-          data-aos-delay="200"
         >
           Read More...
         </Link>

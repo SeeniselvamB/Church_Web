@@ -224,3 +224,7 @@
   background: transparent;
 }
 
+
+body.modal-open .navbar {
+  display: none;
+}

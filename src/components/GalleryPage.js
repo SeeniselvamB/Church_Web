@@ -63,6 +63,14 @@ function GalleryPage() {
     };
   }, [selectedImage]);
 
+  useEffect(() => {
+    document.body.classList.toggle("modal-open", !!selectedImage);
+
+    return () => {
+      document.body.classList.remove("modal-open");
+    };
+  }, [selectedImage]);
+
   return (
     <section className="gallery-page" id="gallery">
       <div className="gallery-overlay"></div>
