@@ -130,7 +130,7 @@
 }
 
 /* === CLOSE BUTTON === */
-.modal-close {
+/* .modal-close {
   position: absolute;
   top: 12px;
   right: 16px;
@@ -145,6 +145,22 @@
   justify-content: center;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
+} */
+
+.modal-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.75);
+  color: white;
+  z-index: 10001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .modal-close:hover {
@@ -207,6 +223,4 @@
   border-radius: 10px;
   background: transparent;
 }
-
-
 

@@ -3,7 +3,7 @@
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family:"Times New Roman", Times, serif !important;
   background-color: #f4f4f4;
   color: #333;
 }
@@ -30,19 +30,10 @@ html {
   }
 }
 @media (max-width: 768px) {
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #003366;
-    backdrop-filter: blur(6px);
-    color: white;
-  }
-
+  
   .home-section{
     height: 100vh;
+    font-family:"Times New Roman", Times, serif !important;
     
   }
   .about-section,

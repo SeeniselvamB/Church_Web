@@ -1,203 +1,128 @@
-import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import "../styles/Navbar.css";
 
-function Navbar() {
+const NAV_LINKS = ["Home", "About", "Timing", "Gallery", "Location"];
+
+export default function Navbar() {
+  const [active, setActive] = useState("Home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState(
-    () => sessionStorage.getItem("activeSection") || "home"
-  );
 
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  // 🏠 Reset active section when first entering home
+  // Solid background once the user scrolls past the hero, so links stay readable
   useEffect(() => {
-    if (location.pathname === "/" && !sessionStorage.getItem("activeSection")) {
-      setActiveSection("home");
-    }
-  }, [location.pathname]);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  // 🧭 Scroll tracking (only on home page)
   useEffect(() => {
-    if (location.pathname !== "/") return;
-
     const handleScroll = () => {
-      if (menuOpen) return; // 🚫 Skip updates when mobile menu is open
-      setScrolled(window.scrollY > 50);
-
       const sections = ["home", "about", "timing", "gallery", "location"];
-      const current = sections.find((section) => {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+
+      let currentSection = "home";
+
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+
+        if (section) {
+          const rect = section.getBoundingClientRect();
+
+          if (rect.top <= 120 && rect.bottom >= 120) {
+            currentSection = id;
+          }
         }
-        return false;
       });
 
-      if (current) {
-        setActiveSection(current);
-        sessionStorage.setItem("activeSection", current);
-      }
+      setActive(
+        currentSection.charAt(0).toUpperCase() + currentSection.slice(1)
+      );
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // initialize on page load
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname, menuOpen]);
+  }, []);
 
-  // ✅ Restore last active section after reload or returning home
   useEffect(() => {
-    if (location.pathname !== "/") return;
+    const handleResize = () => setMenuOpen(false);
 
-    const savedSection = sessionStorage.getItem("activeSection");
-    if (savedSection && document.getElementById(savedSection)) {
-      setTimeout(() => {
-        const el = document.getElementById(savedSection);
-        const yOffset = -80;
-        const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }, 600);
-    }
-  }, [location.pathname]);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  // Lock body scroll while the mobile drawer is open
 
-  // 🔒 Lock/unlock scroll when mobile menu is open (without page jump)
   useEffect(() => {
-    let scrollY = 0;
-
     if (menuOpen) {
-      // Save current scroll position
-      scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
-      // Restore scroll to same position (no jump)
-      const top = document.body.style.top;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      window.scrollTo(0, parseInt(top || "0") * -1);
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
 
-    // Prevent scroll tracking events while menu is open
-    const handleScroll = (e) => {
-      if (menuOpen) e.stopImmediatePropagation();
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
-
-    window.addEventListener("scroll", handleScroll, true);
-    return () => window.removeEventListener("scroll", handleScroll, true);
   }, [menuOpen]);
 
-  // 🧭 Smooth scroll & navigation
-  const handleNavClick = (id, e) => {
+  // Close the drawer on Escape
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const handleLinkClick = (e, link) => {
     e.preventDefault();
-    sessionStorage.setItem("activeSection", id);
 
-    if (location.pathname !== "/") {
-      navigate("/");
-      setMenuOpen(false);
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          const yOffset = -80;
-          const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        }
-      }, 400);
-      return;
-    }
+    setMenuOpen(false);
 
-    const el = document.getElementById(id);
-    if (el) {
-      setMenuOpen(false);
-      setTimeout(() => {
-        const yOffset = -80;
-        const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }, 150);
+    const section = document.getElementById(link.toLowerCase());
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "timing", label: "Timing" },
-    { id: "gallery", label: "Gallery" },
-    { id: "location", label: "Location" },
-  ];
-
   return (
-    <>
-      <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
-        <div className="navbar-container">
-          {/* === LOGO === */}
-          <div className="navbar-logo" onClick={(e) => handleNavClick("home", e)}>
-            {/* <div className="logo-icon">⛪</div> */}
-            <div>
-              <h1 className="logo-title">CSI Immanuel Church CMU</h1>
-              {/* <p className={`logo-subtitle ${scrolled ? "hidden" : ""}`}>
-                Faith • Hope • Love
-              </p> */}
-            </div>
-          </div>
-
-          {/* === DESKTOP NAV === */}
-          <ul className="nav-links">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => handleNavClick(item.id, e)}
-                  className={activeSection === item.id ? "active" : ""}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          {/* === HAMBURGER === */}
-          <button
-            className={`hamburger ${menuOpen ? "open" : ""}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </nav>
-
-      {/* === MOBILE OVERLAY === */}
-      <div
-        className={`mobile-overlay ${menuOpen ? "open" : ""}`}
-        onClick={() => setMenuOpen(false)}
-      ></div>
-
-      {/* === MOBILE MENU === */}
-      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        <ul>
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                onClick={(e) => handleNavClick(item.id, e)}
-                className={activeSection === item.id ? "active" : ""}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="mobile-footer">
-          <p>Join us for worship</p>
-          <strong>Every Sunday at 9:45 AM</strong>
+    <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+      <div className="navbar__brand">
+        <div className="navbar__brand-text">
+          <span className="navbar__brand-title">CSI Immanuel Church</span>
+          <span className="navbar__brand-subtitle">Chithumoondradaippu</span>
         </div>
       </div>
-    </>
+
+      <nav className={`navbar__links ${menuOpen ? "navbar__links--open" : ""}`}>
+        {NAV_LINKS.map((link) => (
+          <a
+            key={link}
+            href={`#${link.toLowerCase()}`}
+            className={`navbar__link ${active === link ? "navbar__link--active" : ""
+              }`}
+            onClick={(e) => handleLinkClick(e, link)}
+          >
+            {link}
+          </a>
+        ))}
+      </nav>
+
+      <button
+        className={`navbar__toggle ${menuOpen ? "navbar__toggle--open" : ""}`}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        {menuOpen ? <X size={26} strokeWidth={2} /> : <Menu size={26} strokeWidth={2} />}
+      </button>
+
+      {menuOpen && <div className="navbar__scrim" onClick={() => setMenuOpen(false)} />}
+    </header>
   );
 }
-
-export default Navbar;

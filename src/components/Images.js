@@ -5,13 +5,13 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import img0 from '../images/Church.png';
-import img1 from '../images/img1.jpg';
+import img1 from '../images/limg.png';
 import img2 from '../images/Church2.jpg';
-import img16 from '../images/Church16.jpg';
-import img6 from '../images/Church18.jpg';
-import img7 from '../images/Church6.jpg';
+import img3 from '../images/Church18.jpg';
+import img4 from '../images/Church6.jpg';
+import img5 from '../images/Church16.jpg';
 
-const images = [img0, img1, img2,img16,img6, img7];
+const images = [img0, img1, img2,img3,img4, img5];
 
 function Images() {
   useEffect(() => {

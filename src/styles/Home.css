@@ -1,145 +1,522 @@
-
-
-
-/* ============================================================
-   HOME SECTION — Full-bleed hero with elegant overlay
-   ============================================================ */
-
-.home-section {
-  height: 100vh;
-  min-height: 600px;
-  background-image: url('../Church12.jpg');
-  background-size: cover;
-  background-position: center top;
+.hero {
   position: relative;
+  height: 750px;
+  width: 100%;
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
   overflow: hidden;
-  background-position: center;
+  font-family: "Times New Roman", serif;
+
 }
 
-/* Gradient overlay: dark navy bottom fade for drama */
-.home-overlay {
+.hero__image {
   position: absolute;
   inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 0;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+
+.hero::before {
+  content: "";
+  position: absolute;
+  left: -180px;
+  top: -120px;
+
+  width: 700px;
+  height: 700px;
+
+  border-radius: 50%;
+
   background:
-    linear-gradient(
-      to bottom,
-      rgba(13, 27, 42, 0.30) 0%,
-      rgba(13, 27, 42, 0.50) 50%,
-      rgba(13, 27, 42, 0.80) 100%
-    );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    radial-gradient(circle,
+      rgba(255, 245, 210, .9) 0%,
+      rgba(255, 245, 210, .65) 30%,
+      rgba(255, 245, 210, .2) 55%,
+      transparent 75%);
+
+  filter: blur(35px);
+  z-index: 1;
 }
 
-/* === HERO TEXT BLOCK === */
-.home-text {
-  text-align: center;
-  padding: 0 24px;
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  padding: 220px 0 160px 64px;
   display: flex;
   flex-direction: column;
+  animation: hero-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   align-items: center;
-  gap: 14px;
 }
 
-/* Thin gold rule above title */
-.home-text::before {
-  content: '';
-  display: block;
-  width: 50px;
+.hero__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: black;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: hero-fade 0.6s ease 0.15s forwards;
+}
+
+.hero__divider {
+  width: 220px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  background: linear-gradient(90deg, #c99a4a, transparent);
+  margin-bottom: 22px;
+  position: relative;
+  transform-origin: left;
+  animation: hero-grow 0.7s ease 0.25s both;
+}
+
+.hero__divider::after {
+  content: "✦";
+  position: absolute;
+  left: 60px;
+  top: -9px;
+  color: #c99a4a;
+  font-size: 0.8rem;
+}
+
+.hero__title {
+  font-family: "Times New Roman", serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  line-height: 1.05;
+  color: darkblue;
+  margin: 0 0 18px 0;
+  opacity: 0;
+  animation: hero-fade 0.7s ease 0.3s forwards;
+}
+
+.hero__location {
+  font-family: "Times New Roman", serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: darkblue;
+  margin: 0 0 32px 0;
+  opacity: 0;
+  animation: hero-fade 0.7s ease 0.4s forwards;
+}
+
+.hero__quote {
+  margin: 0 0 40px 0;
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.4;
+  color: rgb(67, 19, 242);
+  border: none;
+  position: relative;
+  padding-left: 4px;
+  opacity: 0;
+  animation: hero-fade 0.7s ease 0.5s forwards;
+}
+
+.hero__quote-mark {
+  display: block;
+  font-family: "Times New Roman", serif;
+  font-size: 3rem;
+  color: #c99a4a;
+  line-height: 0.5;
   margin-bottom: 6px;
 }
 
-/* Thin gold rule below subtitle */
-.home-text::after {
-  content: '';
+.hero__quote cite {
   display: block;
-  width: 50px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
-  margin-top: 6px;
+  margin-top: 10px;
+  font-family: "Times New Roman", serif;
+  font-style: normal;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color:black;
 }
 
-.home-title {
-  font-family: 'Cinzel', serif;
-  color: #f0e8d0;
-  font-size: clamp(2.0rem, 5vw, 4.2rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-align: center;
-  text-shadow: 0 4px 24px rgba(0,0,0,0.55);
-  margin: 0;
-  line-height: 1.15;
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  opacity: 0;
+  animation: hero-fade 0.7s ease 0.6s forwards;
 }
 
-.home-subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  color: #e8c97a;
-  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: 0.08em;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.50);
-  margin: 0;
-}
-
-/* === VERSE BANNER — floats near top === */
-.verse-banner {
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: transparent;
-  text-align: center;
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-family: "Times New Roman", serif;
+  font-size: 0.8rem;
   font-weight: 600;
-  max-width: 90%;
-  padding: 12px 24px;
-  border-radius: 12px;
-  animation: fadeInVerse 1s ease;
-  z-index: 10;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 1.2rem;
-  transition: font-size 0.2s ease;
-  margin-top:100px;
-
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+  min-width:170px;
 }
 
-@keyframes fadeInVerse {
-  from { opacity: 0; transform: translate(-50%, -10px); }
-  to   { opacity: 1; transform: translate(-50%, 0); }
+.hero__btn:hover {
+  transform: translateY(-2px);
 }
 
+.hero__btn:active {
+  transform: translateY(0);
+}
 
+.hero__btn--primary {
+  background: #1d5fb8;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(29, 95, 184, 0.35);
+}
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  .home-section {
-    background-attachment: scroll; /* fix iOS parallax */
-    height: 100svh;
+.hero__btn--primary:hover {
+  background: #1a54a5;
+  box-shadow: 0 10px 24px rgba(29, 95, 184, 0.45);
+}
+
+.hero__btn--secondary {
+  background: #1d5fb8;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(29, 95, 184, 0.35);
+}
+
+.hero__btn--secondary:hover {
+  background: #1a54a5;
+  box-shadow: 0 10px 24px rgba(29, 95, 184, 0.45);
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
   }
 
-  .home-title { font-size: clamp(1.6rem, 7vw, 2.6rem); }
-  .home-subtitle { font-size: clamp(0.95rem, 4vw, 1.4rem); }
-
-  .verse-banner {
-    font-size: 0.88rem;
-    top: 76px;
-    padding: 8px 20px;
-    max-width: 92%;
-    border-radius: 30px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-grow {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* ---------- Laptop / small desktop ---------- */
+@media (max-width: 1200px) {
+  .hero__content {
+    padding: 190px 0 150px 40px;
+    max-width: 560px;
+    align-items: center;
+    font-family: "Times New Roman", serif;
+  }
+}
+
+/* ---------- Tablet & phones in "desktop site" mode ---------- */
+@media (max-width: 980px) {
+
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    width: 100%;
+    background-size: cover;
+    background-position: 75% center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    font-family: "Times New Roman", serif;
+  }
+
+  .hero {
+    background-image: url("../limg.png");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+  }
+
+  .hero__image {
+    object-position: right center;
+    position: absolute;
+    inset: 0;
+    width: 0%;
+    height: 0%;
+    object-fit: cover;
+    object-position:center;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .hero__content {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 980px;
+    text-align: center;
+    z-index: 5;
+    padding: 0 20px;
+    font-family: "Times New Roman", serif;
+  }
+
+  .hero__eyebrow {
+    font-size: 18px;
+    color: black;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .hero__divider {
+    width: 80px;
+    height: 3px;
+    background: #f2c94c;
+    margin: 14px auto 22px;
+  }
+
+  .hero__title {
+    font-size: 56px;
+    line-height: 1.1;
+    color: darkblue;
+    margin-bottom: 14px;
+    font-family:"Times New Roman", Times, serif !important;
+    font-weight: 700;
+  }
+
+  .hero__location {
+    font-size: 24px;
+    color: darkblue;
+    margin-bottom: 22px;
+  }
+
+  .hero__quote {
+    max-width: 650px;
+    margin: auto;
+    font-size: 22px;
+    line-height: 1.7;
+    color: rgb(67, 19, 242);
+    font-style: italic;
+  }
+
+  .hero__quote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    font-style: normal;
+  }
+
+  .hero__quote-mark {
+    font-size: 48px;
+  }
+
+  /* ---------- BUTTONS OVER THE CHURCH ---------- */
+
+  .hero__actions {
+    position: absolute;
+    left: 35%;
+    transform: translateX(-50%);
+    top: 1600px;
+    display: flex;
+    gap: 18px;
+    z-index: 6;
+  }
+
+  .hero__btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 40px;
+    margin-left: 0%;
+    border-radius: 40px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+
+  }
+
+  .hero__btn--primary {
+    background: #1d5fb8;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(29, 95, 184, 0.35);
+  }
+
+  .hero__btn--primary:hover {
+    background: #1a54a5;
+    box-shadow: 0 10px 24px rgba(29, 95, 184, 0.45);
+  }
+
+  .hero__btn--secondary {
+    background: #1d5fb8;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(29, 95, 184, 0.35);
+  }
+
+  .hero__btn--secondary:hover {
+    background: #1a54a5;
+    box-shadow: 0 10px 24px rgba(29, 95, 184, 0.45);
+  }
+
+}
+
+@media (max-width:768px) {
+
+  .hero {
+    height: 92vh;
+  }
+
+  .hero__content {
+    top: 10px;
+    max-width: 95%;
+    font-family: "Times New Roman", serif;
+  }
+
+  .hero__title {
+    font-size: 34px;
+    font-family: "Times New Roman", serif;
+  }
+
+  .hero__location {
+    font-size: 18px;
+  }
+
+  .hero__quote {
+    font-size: 16px;
+    max-width: 320px;
+  }
+
+  .hero__quote cite {
+    font-size: 14px;
+  }
+
+  .hero__actions {
+    top: 75%;
+    flex-direction: column;
+    width: 55%;
+    position: absolute;
+    left: 25%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 6;
+  }
+
+  .hero__btn {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 22px;
+    margin-left: 0%;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    
+  }
+}
+
+
+/* ---------- Phone landscape / small tablet ---------- */
+@media (max-width: 640px) {
+
+
+  .hero__content {
+    padding: 130px 22px 240px;
+  }
+
+  .hero__quote {
+    margin-bottom: 32px;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Phone portrait ---------- */
 @media (max-width: 480px) {
-  .verse-banner {
-    top: 20px;
-    padding: 0.8px 12px;
-    font-size: 0.82rem;
-    margin-top: 8px;
+
+  .hero__content {
+    padding: 120px 18px 280px;
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+    font-family: "Times New Roman", serif;
+  }
+
+  .hero__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+  }
+
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 380px) {
+
+  .hero {
+    min-height: 90vh;
+  }
+
+  .hero__content {
+    padding: 110px 14px 300px;
+  }
+
+  .hero__quote {
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero__content,
+  .hero__eyebrow,
+  .hero__divider,
+  .hero__title,
+  .hero__location,
+  .hero__quote,
+  .hero__actions,
+  .hero__info-bar {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

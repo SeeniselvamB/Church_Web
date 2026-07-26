@@ -2,7 +2,7 @@
 .about-section {
   position: relative;
   min-height: 100vh;
-  padding: 100px 20px;
+  /* padding: 100px 20px; */
   background: linear-gradient(135deg, #b3e5fc, #e1f5fe, #bbdefb);
   display: flex;
   justify-content: center;
@@ -45,8 +45,8 @@
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  /* box-shadow: 0 8px 32px rgba(13, 71, 161, 0.25); */
   box-shadow: 0 8px 32px rgba(13, 71, 161, 0.25);
-  max-width: 850px;
   width: 90%;
   padding: 50px 40px;
   text-align: center;
