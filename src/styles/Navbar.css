@@ -13,7 +13,12 @@
 
 /* Solid bar once scrolled, so nav stays legible over any content below the hero */
 .navbar--scrolled {
-  background: rgba(38, 249, 242, 0.341);
+  background: linear-gradient(
+    180deg,
+    #fdf3e2 0%,
+    #fbe4c2 55%,
+    #f6d3a8 100%
+  );
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 18px rgba(15, 42, 74, 0.08);
   padding: 8px 64px;
@@ -132,7 +137,13 @@
 
   .navbar,
   .navbar--scrolled {
-    background: rgba(38, 249, 242, 0.341);
+    /* background: rgba(38, 249, 242, 0.341); */
+    background: linear-gradient(
+    180deg,
+    #fdf3e2 0%,
+    #fbe4c2 55%,
+    #f6d3a8 100%
+  );
     backdrop-filter: blur(8px);
   }
 
@@ -239,7 +250,13 @@
 
   .navbar--scrolled {
     padding: 10px 28px;
-    background: rgba(38, 249, 242, 0.341);
+    /* background: rgba(38, 249, 242, 0.341); */
+    background: linear-gradient(
+    180deg,
+    #fdf3e2 0%,
+    #fbe4c2 55%,
+    #f6d3a8 100%
+  );
     backdrop-filter: blur(8px);
   }
 

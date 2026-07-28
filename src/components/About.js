@@ -1,33 +1,115 @@
-import React, { useEffect } from 'react';
-import '../styles/About.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect, useRef } from "react";
 import { Link } from 'react-router-dom';
+import "../styles/About.css";
+import 'aos/dist/aos.css';
+import pasImage from "../limg.png";
 
-function About() {
+
+/** Small hook: fades/slides an element in once it scrolls into view */
+function useReveal() {
+  const ref = useRef(null);
+
   useEffect(() => {
-    AOS.init({ duration: 1200, once: true });
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          node.classList.add("about_is_visible");
+          observer.unobserve(node);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
   }, []);
 
-  return (
-    <section className="about-section" id="about">
-      <div className="background-blur"></div>
+  return ref;
+}
 
-      <div className="about-container glass-card" data-aos="fade-up">
-        <h2 data-aos="fade-down" data-aos-delay="100">About the Church</h2>
-        <p data-aos="fade-up" data-aos-delay="300">
-          The CSI IMMANUEL Church Chithumoondradaippu traces its origins to the American Ceylon Mission, which began evangelistic work in Tamil Nadu in 1834 under Rev. Levi Spaulding. In 1846, Rev. James Herrick continued this mission in the Thirumangalam region, extending its reach to Mallanginar and Chithumoondradaippu. In 1857, Rev. Herrick, along with Rev. A. Perumal, initiated Christian ministry in Chithumoondradaippu, leading to the establishment of a new church in 1859. From its modest beginnings, the church has grown into a strong and faithful community, built on enduring values of faith, service, and unity.
-        </p>
-        <Link
-          to="/history"
-          className="read-more-link"
-        >
-          Read More...
-        </Link>
-      </div>
-    </section>
+function SectionDivider({ withCross = true }) {
+  return (
+    <div className="about_divider" aria-hidden="true">
+      <span className="about_divider_line" />
+      <span className="about_divider_dot" />
+      {withCross && <span className="about_divider_cross">✝</span>}
+      <span className="about_divider_dot" />
+      <span className="about_divider_line" />
+    </div>
   );
 }
 
-export default About;
+function Hero() {
+  const cardRef = useReveal();
+  return (
+    <div className="about_hero" id="about">
+      <div className="about_hero_branch" aria-hidden="true">
+        🌿
+      </div>
+      <div className="about_hero_dove" aria-hidden="true">
+        🕊
+      </div>
 
+      <div className="about_hero_content">
+        <h1 className="about_title" data-aos="fade-right">About Our Church</h1>
+        <SectionDivider />
+        <p className="about_tagline">A Place of Faith, Hope &amp; Love</p>
+        <p className="about_hero_text">
+        CSI Immanuel Church, Chithumoondradaippu began its Christian ministry in 1857 through Rev. James Herrick leading to the establishment of the church in 1859. Since then, it has grown into a vibrant faith community, serving God with steadfast faith, unity, and love.        </p>
+      </div>
+
+      <div className="about_hero_mountains" aria-hidden="true" />
+
+      <div className="about_pastor_section">
+        <div ref={cardRef} className="about_pastor_card about_reveal">
+
+          {/* LEFT SIDE */}
+          <div className="about_pastor_left">
+            <h2 className="about_section_heading">American Missionary</h2>
+
+            <div className="about_pastor_ring">
+              <img
+                src={pasImage}
+                alt="Pastor"
+                className="about_pastor_avatar"
+              />
+            </div>
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="about_pastor_right">
+            <h3 className="about_pastor_name">
+              Rev. James Herrick
+            </h3>
+
+            <p className="about_hero_text">
+              Rev. James Herrick was appointed as the missionary of the Thirumangalam district in 1846. He continued to serve in this capacity for a total of 37 years until 1883.
+        He was the first to preach the gospel, especially in the Mallanginar and Chithumoondradaippu areas.
+            </p>
+
+            <p className="about_hero_text">
+              We are blessed to have him as our spiritual leader and shepherd.
+            </p>
+
+            <div className="about_history_btn about_pastor_btn">
+              <Link to="/history">Read More...</Link>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+export default function About() {
+  return (
+    <div className="about_page">
+      <Hero />
+    </div>
+  );
+}

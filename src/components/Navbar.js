@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import "../styles/Navbar.css";
 
@@ -8,6 +9,8 @@ export default function Navbar() {
   const [active, setActive] = useState("Home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Solid background once the user scrolls past the hero, so links stay readable
   useEffect(() => {
@@ -77,22 +80,33 @@ export default function Navbar() {
 
   const handleLinkClick = (e, link) => {
     e.preventDefault();
-
     setMenuOpen(false);
 
-    const section = document.getElementById(link.toLowerCase());
+    const id = link.toLowerCase();
 
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+    // If already on home page
+    if (location.pathname === "/") {
+      const section = document.getElementById(id);
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    } else {
+      // Go to home page with target section
+      navigate("/", {
+        state: {
+          scrollTo: id,
+        },
       });
     }
   };
 
   return (
     <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
-      <div className="navbar__brand">
+      <div className="navbar__brand" onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
         <div className="navbar__brand-text">
           <span className="navbar__brand-title">CSI Immanuel Church</span>
           <span className="navbar__brand-subtitle">Chithumoondradaippu</span>

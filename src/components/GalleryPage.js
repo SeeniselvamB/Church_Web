@@ -19,15 +19,28 @@ import img11 from '../images/Church18.jpg';
 import img12 from '../images/Church6.jpg';
 import img13 from '../images/img1.jpg';
 
+
+function SectionDivider({ withCross = true }) {
+  return (
+    <div className="about_divider" aria-hidden="true">
+      <span className="about_divider_line" />
+      <span className="about_divider_dot" />
+      {withCross && <span className="about_divider_cross">✝</span>}
+      <span className="about_divider_dot" />
+      <span className="about_divider_line" />
+    </div>
+  );
+}
 function GalleryPage() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
     AOS.init({ duration: 800, once: true });
   }, []);
 
   const images = [
-    img1,im,img, img2, img3, img4,
-    img5, img6, img7, img8, img9, img10, img11, img12,img13
+    img1, im, img, img2, img3, img4,
+    img5, img6, img7, img8, img9, img10, img11, img12, img13
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -74,22 +87,19 @@ function GalleryPage() {
   return (
     <section className="gallery-page" id="gallery">
       <div className="gallery-overlay"></div>
-
-      <div className="glass-card" data-aos="fade-up">
-        <h2 data-aos="fade-down">Church Gallery</h2>
-
-        <div className="gallery-grid">
-          {images.map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              alt={`Church ${index + 1}`}
-              onClick={() => setSelectedImage(src)}
-              data-aos="zoom-in"
-              data-aos-delay={index * 60}
-            />
-          ))}
-        </div>
+      <h2 className="gallery-title" data-aos="fade-down">Church Gallery</h2>
+      <SectionDivider/>
+      <div className="gallery-grid">
+        {images.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`Church ${index + 1}`}
+            onClick={() => setSelectedImage(src)}
+            data-aos="zoom-in"
+            data-aos-delay={index * 60}
+          />
+        ))}
       </div>
 
       {selectedImage && (
@@ -105,6 +115,7 @@ function GalleryPage() {
           </div>
         </div>
       )}
+      <div className="about_hero_mountains" aria-hidden="true" />
     </section>
   );
 }

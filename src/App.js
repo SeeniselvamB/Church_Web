@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -15,10 +17,29 @@ import Prayer from './components/Prayer';
 
 import './App.css';
 
+function ScrollHandler() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      setTimeout(() => {
+        document
+          .getElementById(location.state.scrollTo)
+          ?.scrollIntoView({
+            behavior: "smooth",
+          });
+      }, 100);
+    }
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   
   return (
     <Router>
+      <ScrollHandler />
       <div className="App">
         <Navbar />
         <Prayer />

@@ -43,6 +43,18 @@ const branchData = [
   },
 ];
 
+function SectionDivider({ withCross = true }) {
+  return (
+    <div className="about_divider" aria-hidden="true">
+      <span className="about_divider_line" />
+      <span className="about_divider_dot" />
+      {withCross && <span className="about_divider_cross">✝</span>}
+      <span className="about_divider_dot" />
+      <span className="about_divider_line" />
+    </div>
+  );
+}
+
 function Media() {
   const [selectedBranch, setSelectedBranch] = useState(null);
 
@@ -76,11 +88,38 @@ function Media() {
 
   return (
     <section className="media-section">
+      <div className="corner-decor corner-top-left" aria-hidden="true">
+          <svg viewBox="0 0 200 200" fill="none">
+            <path
+              d="M0 0 Q60 30 90 90 Q110 130 180 150"
+              stroke="#d4af6a"
+              strokeWidth="2"
+              opacity="0.7"
+            />
+            <ellipse cx="20" cy="15" rx="14" ry="7" fill="#d4af6a" opacity="0.6" transform="rotate(30 20 15)" />
+            <ellipse cx="45" cy="35" rx="14" ry="7" fill="#d4af6a" opacity="0.6" transform="rotate(45 45 35)" />
+            <ellipse cx="70" cy="60" rx="14" ry="7" fill="#d4af6a" opacity="0.5" transform="rotate(55 70 60)" />
+          </svg>
+        </div>
+        <div className="corner-decor corner-bottom-right" aria-hidden="true">
+          <svg viewBox="0 0 200 200" fill="none">
+            <path
+              d="M200 200 Q140 170 110 110 Q90 70 20 50"
+              stroke="#d4af6a"
+              strokeWidth="2"
+              opacity="0.7"
+            />
+            <ellipse cx="180" cy="185" rx="14" ry="7" fill="#d4af6a" opacity="0.6" transform="rotate(30 180 185)" />
+            <ellipse cx="155" cy="165" rx="14" ry="7" fill="#d4af6a" opacity="0.6" transform="rotate(45 155 165)" />
+            <ellipse cx="130" cy="140" rx="14" ry="7" fill="#d4af6a" opacity="0.5" transform="rotate(55 130 140)" />
+          </svg>
+        </div>
       <div className="media-overlay"></div>
-
+      
       {/* === BRANCHES BOX === */}
       <div className="glass-card" data-aos="fade-up">
         <h2>Our Church Branches</h2>
+        <SectionDivider />
         <div className="branch-grid">
           {branchData.map((branch, index) => (
             <div
@@ -119,6 +158,7 @@ function Media() {
           </a>
         </div>
       </div>
+      <div className="about_hero_mountains" aria-hidden="true" />
 
       {/* === MODAL === */}
       {selectedBranch && (
